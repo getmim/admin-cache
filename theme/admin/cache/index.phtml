@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white navbar-shadow">
+    <div class="navbar-multiline mr-auto">
+        <span class="navbar-brand" href="#0">Caches Cleanup</span>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="<?= $this->router->to('adminHome') ?>">Home</a></li>
+                <li class="breadcrumb-item"><a href="<?= $this->router->to('adminSetting') ?>">Setting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Caches Cleanup</li>
+            </ol>
+        </nav>
+    </div>
+</nav>
+
+<div class="container p-3">
+    <div class="row">
+        <div class="col-md-6">
+            <?= $this->partial('cache/menu__items', ['items'=>$items, 'active'=>null]); ?>
+        </div>
+    </div>
+</div>
+
+<?php if($cleaned): ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            $.toaster({
+                content: 'The caches successfully truncated',
+                title: 'Success',
+                info: 'just now',
+                position: 'bottom right'
+            })
+        });
+    </script>
+<?php endif; ?>

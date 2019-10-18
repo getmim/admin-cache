@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="list-group list-group-flush">
+        <?php foreach($items as $item): ?>
+            <a href="<?= $item->link ?>" class="list-group-item list-group-item-action<?= ($active==$item->id?' active':'') ?>">
+                <div class="d-flex w-100 justify-content-between">
+                    <div class="list-group-item-label"><?= hs($item->label) ?></div>
+                    <small title="Total caches"><?= number_format($item->total) ?></small>
+                </div>
+                <small><?= hs($item->info) ?></small>
+            </a>
+        <?php endforeach; ?>
+    </div>
+</div>
